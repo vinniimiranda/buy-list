@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid, Button, Box,
   TableContainer,
-  Table, TableHead, TableBody, TableCell, TableRow, Paper, Checkbox, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField, Typography
+  Table, TableHead, TableBody, TableCell, TableRow, Paper, Checkbox, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField
 } from '@material-ui/core'
 
 const useStyles = makeStyles({
@@ -81,10 +81,10 @@ export default function Home () {
     return Number(val).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
   }
 
-  function sumProducts () {
-    const sum = products.map(product => Number(product.amount) * Number(product.price)).reduce((a, b) => (a + b), 0).toString()
-    return formatCoin(sum)
-  }
+  // function sumProducts () {
+  //   const sum = products.map(product => Number(product.amount) * Number(product.price)).reduce((a, b) => (a + b), 0).toString()
+  //   return formatCoin(sum)
+  // }
   return (
     <Grid container>
       <Grid item xs={12} >
@@ -98,8 +98,7 @@ export default function Home () {
             <TableHead>
               <TableRow>
                 <TableCell align="center">Produto</TableCell>
-                <TableCell align="center">QTD</TableCell>
-                <TableCell align="center">Unidade</TableCell>
+                <TableCell align="center">Quantidade</TableCell>
                 <TableCell align="center">Preço</TableCell>
                 <TableCell align="center">Situação</TableCell>
               </TableRow>
@@ -111,7 +110,6 @@ export default function Home () {
                 }} >
                   <TableCell align="center">{row.product}</TableCell>
                   <TableCell align="center">{row.amount}</TableCell>
-                  <TableCell align="center">{row.unit}</TableCell>
                   <TableCell align="center">{formatCoin(row.price)}</TableCell>
                   <TableCell align="center">
                     <Checkbox checked={row.done} onChange={() => handleCheckProduct(row)} />
@@ -140,11 +138,6 @@ export default function Home () {
                     label="Quantidade" variant="filled" fullWidth />
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} >
-                  <TextField value={item.unit}
-                    onChange={(e) => setItem({ ...item, unit: e.target.value })}
-                    label="Unidade" variant="filled" fullWidth />
-                </Grid>
-                <Grid item xs={12} sm={6} md={6} >
                   <TextField value={item.price}
                     onChange={e => setItem({ ...item, price: e.target.value })}
                     label="Preço" variant="filled" fullWidth />
@@ -162,7 +155,7 @@ export default function Home () {
           </DialogActions>
         </Dialog>
       </Grid>
-      <Grid>
+      {/* <Grid>
         <Box position="absolute" bottom="0" left="0" display="flex" flex="1" width="100%">
           <Paper style={{
             width: '100%',
@@ -175,7 +168,7 @@ export default function Home () {
             </Typography>
           </Paper>
         </Box>
-      </Grid>
+      </Grid> */}
     </Grid>
   )
 }

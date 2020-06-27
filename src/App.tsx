@@ -11,17 +11,19 @@ import Routes from "./routes/index";
 
 
 const ThemeContext = () => {
-  const prefersDarkMode = true;
+  const prefersDarkMode = false;
   const theme = React.useMemo(
     () =>
       createMuiTheme({
         palette: {
           type: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: prefersDarkMode ? "#00B0FF" : "#00BFA6",
+            main: prefersDarkMode ? "#1890FF" : "#1890FF",
+            contrastText: '#fff'
           },
           secondary: {
-            main: prefersDarkMode ? "#00B0FF" : "#00B0FF",
+            main: prefersDarkMode ? "#1890FF" : "#00B0FF",
+            contrastText: '#fff'
           },
           background: {
             default: prefersDarkMode ? "#121212" : "#FAFAFA",
