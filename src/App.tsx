@@ -11,7 +11,7 @@ import Routes from "./routes/index";
 
 
 const ThemeContext = () => {
-  const prefersDarkMode = false;
+  const prefersDarkMode = true;
   const theme = React.useMemo(
     () =>
       createMuiTheme({
